@@ -2,7 +2,9 @@
 
 var prodID = window.name;
 
-var prodRef = new Firebase('https://app-juanma-demo.firebaseio.com/products');
+var urlBD = window.config.databaseURL;
+var prodRef = new Firebase( urlBD + "products")
+
 
 var name, desc, price, img;
 

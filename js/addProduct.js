@@ -1,6 +1,7 @@
 /* global $, Firebase */
 
-var myRef = new Firebase("https://app-juanma-demo.firebaseio.com/")
+var urlBD = window.config.databaseURL;
+var myRef = new Firebase( urlBD )
 
 var itemName;
 var itemDescription;
