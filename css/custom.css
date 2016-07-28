@@ -1,0 +1,22 @@
+.prodListHeader {
+    border-bottom: 1px solid grey;
+    background-color: black;
+    color:white;
+}
+
+.picFix {
+    min-height: 140px;
+}
+
+.spacer {
+    min-height: 30px;
+}
+
+body {
+    padding-top: 65px;
+}
+
+img {
+    height: 140px;
+    width: 140px;
+}
