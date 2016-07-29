@@ -22,11 +22,53 @@
     </nav>
     <div class="container-fluid" id="main">
        <h1>Products for Sale</h1>
-
-
     </div>
-
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    
+    <script id="logBlockTemplate" type="text/x-handlebars-template">
+        <li><p class="navbar-text navbar-right"><strong>{{ mail }}</strong> logged in </p></li>
+        <li><button type="button" class="btn btn-warning navbar-btn" id="logoutButton">Logout</button></li>
+    </script>
+    
+    <script id="prodListTemplate" type="text/x-handlebars-template">
+ 
+        <div class="row">
+            <div class="col-md-3 prodListHeader">
+                <h2>{{ name }}</h2>
+            </div>
+         
+            <div class="col-md-3 prodListHeader">
+                <h2>{{ price }}</h2>
+            </div>            
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3 picFix">
+                {{#if image }}
+                    <img src="{{ image }}">
+                {{ else }}
+                    <img alt="No Pic">
+                {{/if }}
+            </div>
+            
+            <div class="col-md-3">
+                <p>{{ description }}</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-warning" onclick="editProd('{{ index }}')">EDIT PRODUCT</button>
+            </div>
+             <div class="col-md-9">
+                <button type="button" class="btn btn-danger" onclick="deleteProd('{{ index }}')">DELETE PRODUCT</button>
+            </div>
+        </div>
+        <div class="row spacer"></div>
+            
+    </script>
+        
+    <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src="config.js"></script>
