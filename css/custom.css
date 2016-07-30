@@ -1,5 +1,14 @@
-#logoutButton {
-    margin-left:30px;
+.imageProfile { text-align: center; }
+form + p { margin:15px 0; }
+
+.user-block {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.user-block li {
+	margin:0 5px;
+	list-style: none;
 }
 
 .prodListHeader {

@@ -1,0 +1,17 @@
+// Allow anyone to read the list of Posts.
+path /products {
+  read() { true }
+  write() { true }
+}
+
+// All individual Posts are writable by anyone.,
+path /products/{id} is Product {}
+
+type Product {
+  validate() { this.price < 100 }
+
+  name: String,
+  description: String,
+  image: String | Null,
+  price: Number
+}

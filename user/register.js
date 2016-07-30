@@ -8,36 +8,50 @@ var emailAddress, passwrd, passwrdConfirm;
 $('#registerForm').change(function(){
     passwrd = $('#password').val();
     passwrdConfirm = $('#password2').val();
-    
+
     if (passwrd == passwrdConfirm) {
-        $('#registerButton').removeProp('disabled');
+        $('#registerButton').removeAttr('disabled');
     } else {
-        $('#registerButton').prop('disabled', 'disabled');
+        $('#registerButton').attr('disabled', 'disabled');
     }
-}); 
+});
+
+myRef.onAuth(function(authData) {
+    console.log(authData);
+  if (authData && isNewUser) {
+    console.log("is New!!")
+    // save the user's profile into Firebase so we can list users,
+    // use them in Security and Firebase Rules, and show profiles
+    myRef.child("users").child(authData.uid).set({
+      provider: authData.provider,
+      name: getName(authData)
+    });
+  }
+});
 
 
 $('#registerButton').click(registerUser);
 $('#cancelButton').click(cancelRegister);
 
 function registerUser() {
-    
+
     var newUser;
-    
+
     emailAddress = $('#emailAddress').val();
     passwrd = $('#password').val();
-    
+
     newUser = {
         email: emailAddress,
         password: passwrd
     }
-    
+
     myRef.createUser( newUser,  onComplete );
 }
 
 function cancelRegister() {
-    window.location.assign('index.html');
+    window.location.assign('../index.html');
 }
+
 
 function onComplete(error, userData) {
     if (error) {
@@ -50,9 +64,10 @@ function onComplete(error, userData) {
         break;
       default:
         alert('Error creating user:', error);
-        } 
+        }
     } else {
         alert('Successfully created user account' );
-        window.location.assign('index.html');
+
+        //window.location.assign('index.html');
     }
 }

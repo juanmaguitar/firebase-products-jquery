@@ -13,34 +13,44 @@
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="index.html">Home</a></li>
-                <li class="active"><a href="#">Admin</a></li>
-                <li><a href="addProduct.html">Add Product</a></li>
-            </ul>
+            <div class="col-sm-6">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="#">Admin</a></li>
+                    <li><a href="addProduct.html">Add Product</a></li>
+                </ul>
+            </div>
+
         </div>
     </nav>
     <div class="container-fluid" id="main">
        <h1>Products for Sale</h1>
     </div>
-    
+
+    <!-- Template Login Header-->
     <script id="logBlockTemplate" type="text/x-handlebars-template">
-        <li><p class="navbar-text navbar-right"><strong>{{ mail }}</strong> logged in </p></li>
-        <li><button type="button" class="btn btn-warning navbar-btn" id="logoutButton">Logout</button></li>
+        <div class="col-sm-6">
+            <ul class="user-block">
+                <li><p class="navbar-text"><strong>{{ mail }}</strong> logged in </p></li>
+                <li><a href="user/profile.html" class="btn btn-info">Edit Profile</a></li>
+                <li><button type="button" class="btn btn-warning" id="logoutButton">Logout</button></li>
+            </ul>
+        </div>
     </script>
-    
+
+    <!-- Template Product List Item -->
     <script id="prodListTemplate" type="text/x-handlebars-template">
- 
+
         <div class="row">
             <div class="col-md-3 prodListHeader">
                 <h2>{{ name }}</h2>
             </div>
-         
+
             <div class="col-md-3 prodListHeader">
                 <h2>{{ price }}</h2>
-            </div>            
+            </div>
         </div>
-        
+
         <div class="row">
             <div class="col-md-3 picFix">
                 {{#if image }}
@@ -49,12 +59,12 @@
                     <img alt="No Pic">
                 {{/if }}
             </div>
-            
+
             <div class="col-md-3">
                 <p>{{ description }}</p>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-md-3">
                 <button type="button" class="btn btn-warning" onclick="editProd('{{ index }}')">EDIT PRODUCT</button>
@@ -64,9 +74,9 @@
             </div>
         </div>
         <div class="row spacer"></div>
-            
+
     </script>
-        
+
     <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
